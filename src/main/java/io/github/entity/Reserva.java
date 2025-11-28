@@ -13,14 +13,25 @@ public class Reserva {
 
     private String nomeHospede;
     private String tipoQuarto;
-    private Integer dias;
-    private Double valor;
-    public Reserva(String nomeHospede, String tipoQuarto, Integer dias, Double valor) {
+    private Integer diasQuantidade;
+    private Double valorDiaria;
+    private Double valorTotal;
+    public Reserva(String nomeHospede, String tipoQuarto, Integer diasQuantidade, Double valorDiaria) {
         this.nomeHospede = nomeHospede;
         this.tipoQuarto = tipoQuarto;
-        this.dias = dias;
-        this.valor = valor;
+        this.diasQuantidade = diasQuantidade;
+        this.valorDiaria = valorDiaria;
+        this.valorTotal = this.valorDiaria * this.diasQuantidade;
     }
+
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     public String getNomeHospede() {
         return nomeHospede;
     }
@@ -33,22 +44,21 @@ public class Reserva {
     public void setTipoQuarto(String tipoQuarto) {
         this.tipoQuarto = tipoQuarto;
     }
-    public Integer getDias() {
-        return dias;
+    public Integer getDiasQuantidade() {
+        return diasQuantidade;
     }
-    public void setDias(Integer dias) {
-        this.dias = dias;
+    public void setDiasQuantidade(Integer diasQuantidade) {
+        this.diasQuantidade = diasQuantidade;
     }
-    public Double getValor() {
-        return valor;
+    public Double getValorDiaria() {
+        return valorDiaria;
     }
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public void setValorDiaria(Double valorDiaria) {
+        this.valorDiaria = valorDiaria;
     }
+
     @Override
     public String toString() {
-        return "Reserva [nomeHospede=" + nomeHospede + ", tipoQuarto=" + tipoQuarto + ", dias=" + dias + ", valor="
-                + valor + "]";
+        return nomeHospede+"\t"+tipoQuarto+"\t"+diasQuantidade+"\t"+valorTotal;
     }
-    
 }
